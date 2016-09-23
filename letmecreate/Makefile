@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=letmecreate
-PKG_VERSION:=1.0.2
+PKG_VERSION:=1.1.0
 
 PKG_SOURCE_VERSION:=HEAD
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
@@ -36,7 +36,7 @@ CMAKE_OPTIONS += $(if $(CONFIG_LETMECREATE_BUILD_EXAMPLES),-DBUILD_EXAMPLES=ON)
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(STAGING_DIR)/usr/include/letmecreate
-	$(CP) $(PKG_INSTALL_DIR)/usr/include/letmecreate $(STAGING_DIR)/usr/include/letmecreate
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/letmecreate $(STAGING_DIR)/usr/include/
 
 	$(INSTALL_DIR) $(STAGING_DIR)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/*.so $(STAGING_DIR)/usr/lib/
@@ -55,11 +55,10 @@ define Package/letmecreate/install
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/*.so $(1)/usr/lib/
 
 	$(INSTALL_DIR) $(1)/usr/include/letmecreate
-	$(CP) $(PKG_INSTALL_DIR)/usr/include/* $(1)/usr/include/letmecreate
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/* $(1)/usr/include/
 
 	$(INSTALL_DIR) $(1)/usr/lib/cmake/LetMeCreate
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/cmake/LetMeCreate/*.cmake $(1)/usr/lib/cmake/LetMeCreate
 endef
 
 $(eval $(call BuildPackage,letmecreate))
-
