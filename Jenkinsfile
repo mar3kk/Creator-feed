@@ -9,7 +9,7 @@ properties([
 
 stage('Trigger openwrt build') {
     build job: "../openwrt/${params.OPENWRT_BRANCH}", parameters: [
-        string(name: 'OVERRIDE_CREATOR-FEED', value: "${BRANCH_NAME}")
+        string(name: 'OVERRIDE_CREATOR', value: "${BRANCH_NAME}")
     ]
 }
 
