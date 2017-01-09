@@ -2,6 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python3-letmecreate
 PKG_VERSION:=1.2.1
+PKG_RELEASE:=2
 
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
@@ -23,7 +24,7 @@ define Package/python3-letmecreate
   CATEGORY:=Languages
   TITLE:=PyLetMeCreate
   URL:=https://github.com/francois-berder/PyLetMeCreate
-  DEPENDS:= +python3-light +letmecreate
+  DEPENDS:= +python3-light +letmecreate +python3-ctypes
 endef
 
 define Package/python3-letmecreate/description
