@@ -1,8 +1,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python3-letmecreate
-PKG_VERSION:=1.2.1
-PKG_RELEASE:=2
+PKG_VERSION:=1.4.0
+PKG_RELEASE:=1
 
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
@@ -40,6 +40,9 @@ endef
 define Package/python3-letmecreate/install
 	$(INSTALL_DIR) $(1)/usr/bin/pyletmecreate_examples/
 	$(CP) $(PKG_BUILD_DIR)/examples/*.py $(1)/usr/bin/pyletmecreate_examples/
+
+	$(INSTALL_DIR) $(1)/usr/bin/pyletmecreate_examples/data
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/examples/data/* $(1)/usr/bin/pyletmecreate_examples/data
 
 	$(INSTALL_DIR) $(1)/usr/lib/python3.5/site-packages/
 	$(CP) $(PKG_BUILD_DIR)/letmecreate $(1)/usr/lib/python3.5/site-packages/
