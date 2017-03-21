@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=onboarding-scripts
-PKG_VERSION:=0.1.2
+PKG_VERSION:=0.1.3
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
@@ -35,16 +35,16 @@ define Package/onboarding-scripts/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/
 
 	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/etc/init.d/* $(1)/etc/init.d/
-
 	$(INSTALL_DIR) $(1)/etc/avahi/services
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/etc/avahi/services/* $(1)/etc/avahi/services/
 
 	$(INSTALL_DIR) $(1)/usr/lib/lua
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/lua/* $(1)/usr/lib/lua/
 
 	$(INSTALL_DIR) $(1)/www
 	$(CP) $(PKG_INSTALL_DIR)/www/* $(1)/www/
+
+	$(INSTALL_DATA) files/etc/avahi/services/* $(1)/etc/avahi/services/
+	$(INSTALL_BIN) files/etc/init.d/* $(1)/etc/init.d/
 
 endef
 
