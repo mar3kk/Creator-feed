@@ -2,8 +2,8 @@ include $(TOPDIR)/rules.mk
 
 
 PKG_NAME:=provisioning-daemon
-PKG_VERSION:=0.1.2
-PKG_RELEASE:=3
+PKG_VERSION:=1.0.0
+PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/CreatorDev/ci40-provision-daemon.git
@@ -25,7 +25,7 @@ define Package/provisioning-daemon
   SECTION:=utils
   CATEGORY:=Utilities
   TITLE:=Ci40 Provisioning Daemon
-  DEPENDS:=+letmecreate +ubus +ubox +libconfig
+  DEPENDS:=+letmecreate +ubus +ubox +libconfig +glib2 +crypto +ssl
 endef
 
 define Package/provisioning-daemon/description
